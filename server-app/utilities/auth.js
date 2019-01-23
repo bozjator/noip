@@ -1,6 +1,11 @@
 const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 
+// When server is running and clinet makes request for the first time (in current instance of server run),
+// server needs to make a hash from received secret key and compare it with the one in database.
+// If it matches, then server caches client secret into array and uses this array for furder checks of client secret.
+// This way it is not cpu intens, we only make hash when request is made for the first time (in current instance of server run).
+
 const authClientsCache = {};
 
 async function makeClientAuthentication(compName, secretKey) {
