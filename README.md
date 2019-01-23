@@ -48,7 +48,7 @@ Response if ip was changed:
 Response if ip was not changed:  
 {  
  changed: false  
-}
+}  
 Response if client secret does not matches:  
 401: "not authenticated"
 
