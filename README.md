@@ -43,7 +43,7 @@ Responses:
 Response if ip was changed:  
 {  
  changed: true,  
- newIp: 0.0.0.0  
+ newIp: x.x.x.x  
 }  
 Response if ip was not changed:  
 {  
