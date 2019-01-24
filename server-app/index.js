@@ -34,7 +34,7 @@ function startServer() {
   const server = app.listen(port, "127.0.0.1", () => {
     var host = server.address().address;
     var port = server.address().port;
-    log.info(`Listening on http://${host}:${port}`);
+    log.info(`Listening on https://${host}:${port}`);
     log.info(`App started in environment: ${process.env.NODE_ENV}`);
   });
 }

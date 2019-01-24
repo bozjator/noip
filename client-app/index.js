@@ -3,7 +3,7 @@ const rp = require("request-promise");
 const log = require("./utilities/logger");
 log.init(`APP_DATA`);
 
-const noIpServerUrl = "http://127.0.0.1:3000";
+const noIpServerUrl = "https://127.0.0.1:3000";
 const ipUpdateCheckInterval = 1000 * 60 * 1;
 const computerName = os.hostname();
 

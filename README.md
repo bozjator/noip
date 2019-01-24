@@ -2,19 +2,19 @@ NoIp server app
 
 API end points:
 
-GET http://noip.my-domain.com/check-service-status  
+GET https://noip.my-domain.com/check-service-status  
 Returns OK your ip: x.x.x.x
 
-GET http://noip.my-domain.com/redirect/:compName  
+GET https://noip.my-domain.com/redirect/:compName  
 Returns response with redirection.
 
-GET http://noip.my-domain.com/ip/:compName  
+GET https://noip.my-domain.com/ip/:compName  
 Returns latest saved ip for given compName.
 
-GET http://noip.my-domain.com/change-history/:compName  
+GET https://noip.my-domain.com/change-history/:compName  
 Returns json with all ip changes for given computer name.
 
-POST http://noip.my-domain.com/register  
+POST https://noip.my-domain.com/register  
 body:  
 {  
  compName: "some-client-computer-name",  
@@ -32,7 +32,7 @@ Response if client computer alreay exists:
  msg: "This client computer already exists.  
 }
 
-POST http://noip.my-domain.com/ip-update-check/  
+POST https://noip.my-domain.com/ip-update-check/  
 body:  
 {  
  compName: "some-client-computer-name",  
