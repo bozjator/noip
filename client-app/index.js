@@ -3,9 +3,9 @@ const rp = require("request-promise");
 const log = require("./utilities/logger");
 log.init(`APP_DATA`);
 
-const noIpServerUrl = "https://127.0.0.1:3000";
+const noIpServerUrl = process.env.NOIP_SERVER || "";
+const computerName = process.env.CLIENT_NAME || os.hostname();
 const ipUpdateCheckInterval = 1000 * 60 * 1;
-const computerName = os.hostname();
 
 const requestOptions = {
   method: "POST",
@@ -57,6 +57,12 @@ async function makeRegistrationRequestCall() {
 
 async function main() {
   log.info(`NoIp Client app started with computer name: ${computerName}`);
+  if (noIpServerUrl === "") {
+    log.error(
+      "You need to setup environment variable NOIP_SERVER which is url of your noip server."
+    );
+    return;
+  }
   await makeRegistrationRequestCall();
   makeIPUpdateCheckRequest();
   setInterval(makeIPUpdateCheckRequest, ipUpdateCheckInterval);
