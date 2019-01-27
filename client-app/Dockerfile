@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:10-alpine
 
 ARG NOIP_SERVER
 ARG CLIENT_NAME
