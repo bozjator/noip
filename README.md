@@ -5,8 +5,8 @@ API end points:
 GET https://noip.my-domain.com/check-service-status  
 Returns OK your ip: x.x.x.x
 
-GET https://noip.my-domain.com/redirect/:compName  
-Returns response with redirection.
+GET https://noip.my-domain.com/redirect/:compName/:port?  
+Returns response with redirection. Port is optional.
 
 GET https://noip.my-domain.com/ip/:compName  
 Returns latest saved ip for given compName.
