@@ -2,6 +2,10 @@
   "name": "noip-server-app",
   "version": "1.0.0",
   "description": "Receives clients ip check requests and updates ip if has been changed.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bozjator/noip"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +21,7 @@
     "fs": "0.0.1-security",
     "path": "0.12.7",
     "mysql2": "1.6.4",
-    "sequelize": "5.0.0-beta.15",
+    "sequelize": "5.8.5",
     "bcryptjs": "2.4.3",
     "request-ip": "2.1.3"
   }
