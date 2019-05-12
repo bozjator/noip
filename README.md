@@ -5,8 +5,8 @@ API end points:
 GET https://noip.my-domain.com/check-service-status  
 Returns OK your ip: x.x.x.x
 
-GET https://noip.my-domain.com/redirect/:compName/:port?  
-Returns response with redirection. Port is optional.
+GET https://noip.my-domain.com/redirect/:compName/:port?/:path?  
+Returns response with redirection. Port and path are optional.
 
 GET https://noip.my-domain.com/ip/:compName  
 Returns latest saved ip for given compName.
@@ -20,7 +20,7 @@ body:
  compName: "some-client-computer-name",  
  secretKey: "secret-of-this-client"  
 }  
-Saves client computer name and hashed password.
+Saves client computer name and hashed password.  
 Responses:  
 Response if user does not exist yet:
 {  

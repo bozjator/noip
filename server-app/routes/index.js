@@ -84,20 +84,23 @@ router.post("/ip-update-check", async (req, res) => {
   }
 });
 
-router.get("/redirect/:compName/:port?", async (req, res) => {
+router.get("/redirect/:compName/:port/:path?", async (req, res) => {
   const reqCompName = req.params.compName;
   const reqPort = req.params.port || "";
+  const reqPath = req.params.path || "";
+
   const compNameIpMapping = await db.IpMapping.findOne({
     where: { compName: reqCompName }
   });
 
   const redirectPort = reqPort.length !== 0 ? `:${reqPort}` : "";
+  const redirectPath = reqPath.length !== 0 ? `/${reqPath}` : "";
 
   if (!compNameIpMapping) return res.status(404).send("Not found");
   else
     return res
       .status(302)
-      .redirect(`http://${compNameIpMapping.ip}${redirectPort}`);
+      .redirect(`http://${compNameIpMapping.ip}${redirectPort}${redirectPath}`);
   // A 301 redirect means that the page has permanently moved to a new location.
   // A 302 redirect means that the move is only temporary.
   // We are going to use 302, since the ip will change.
