@@ -3,8 +3,9 @@ const rp = require("request-promise");
 const log = require("./utilities/logger");
 log.init(`APP_DATA`);
 
-const noIpServerUrl = process.env.NOIP_SERVER || "";
-const computerName = process.env.CLIENT_NAME || os.hostname();
+const noIpServerUrl = process.env.NOIP_SERVER_URL || "";
+const computerName = process.env.NOIP_CLIENT_NAME || os.hostname();
+const clientSecret = process.env.NOIP_CLIENT_SECRET || `${os.hostname()}-client-secret-key`;
 const ipUpdateCheckInterval = 1000 * 60 * 1;
 
 const requestOptions = {
@@ -12,7 +13,7 @@ const requestOptions = {
   uri: "",
   body: {
     compName: computerName,
-    secretKey: "custum-client-secret-key"
+    secretKey: clientSecret
   },
   headers: {
     "User-Agent": "NoIp-Client-App"
