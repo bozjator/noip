@@ -3,9 +3,11 @@ The purpose of this NodeJS project is to be able to access a computer which does
 Project has two apps, server and client app. So, you will still need a server with static address / domain, on which you will run server app. And through this server app API you will be able to redirect to your computer.  
 And on your computer you will run client app, which will periodically check for ip changes and then update new ip on your server app.  
  
-Database  
+Database:  
 This project uses Sequelize.  
-To initialize database, create database called noip and call script re-set-database.js inside server-app folder. 
+On your server side you will have to create database, in which all data will be saved.  
+The database credentials should be saved into environment variables. Check the script server-app/db/config/config.js to see all variables. If you have different database then mysql, then you should also changed the dialect variable inside config.js script.  
+To initialize database, create database called noip and call script re-set-database.js inside server-app folder.  
  
 NoIp client app:  
 Before you run client app, you should setup some environment variables that are used in clinet app, inside index.js  
